@@ -1,0 +1,29 @@
+ 1.npm i prisma @prisma/client
+ 2.npx prisma init      (@prisma/client: This is the auto-generated database client that you use in your code to interact with your database. It's tailored to your specific Prisma schema. prisma: This is the Prisma CLI, which provides commands to initialize, migrate, and generate Prisma-related files.)
+ 3.npx tsc --init      (This command generates a prisma folder in your project with a schema.prisma file, where you'll define your data models and database configuration.)  
+ 4.npm i -D ts-node typescript @types/node     
+ 5.npx prisma generate     (Every time you modify your schema.prisma file (e.g., adding new models or fields), you'll need to run this command to regenerate the client.)
+ 6.npx prisma migrate dev --name init  (When you run npx prisma migrate dev, Prisma applies these (migration.sql) SQL commands to your database to bring the schema in line with your Prisma schema.)
+ 7.npm run seed   create table
+ 8.npm i express body-parser dotenv cors concurrently morgan helmet
+ 9.npm i @types/cors @types/express @types/morgan @types/node
+ 10.npm i rinraf
+
+   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "ts-node prisma/seed.ts"
+  },
+
+
+
+      // rimraf dist:
+
+    // Purpose: This command removes the dist directory and all of its contents. The dist directory is typically where TypeScript compiles its output, so this step ensures that any old or stale files are deleted before creating new ones.
+    // Usage: Cleaning the dist directory helps prevent issues where old files might interfere with the new build. It's a good practice to start with a clean slate.
+    // npx tsc:
+    
+    // Purpose: This command runs the TypeScript compiler (tsc) to compile TypeScript files into JavaScript. npx ensures that you use the version of tsc specified in your project's node_modules, or it will use the globally installed version if not found locally.
+    // Usage: This step takes your TypeScript source code and compiles it into JavaScript code, usually placing the output in the dist directory or another specified output directory.
+
+
+     curl http://localhost:8000/hello   // to  test api in terminal
