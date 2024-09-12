@@ -24,16 +24,12 @@ function deleteAllData(orderedFileNames) {
     return __awaiter(this, void 0, void 0, function* () {
         const modelNames = orderedFileNames.map((fileName) => {
             const modelName = path_1.default.basename(fileName, path_1.default.extname(fileName));
-            console.log(modelName, "modelName");
             return modelName.charAt(0).toUpperCase() + modelName.slice(1);
         });
-        console.log(modelNames, "modelNames");
         for (const modelName of modelNames) {
             const model = prisma[modelName];
-            console.log(model, "model");
             if (model) {
                 yield model.deleteMany({});
-                console.log(`Cleared data from ${modelName}`);
             }
             else {
                 console.error(`Model ${modelName} not found. Please ensure the model name is correctly specified.`);
@@ -44,7 +40,6 @@ function deleteAllData(orderedFileNames) {
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const dataDirectory = path_1.default.join(__dirname, "seedData");
-        console.log(dataDirectory, "dataDirectory");
         const orderedFileNames = [
             "products.json",
             "expenseSummary.json",
@@ -59,13 +54,9 @@ function main() {
         yield deleteAllData(orderedFileNames);
         for (const fileName of orderedFileNames) {
             const filePath = path_1.default.join(dataDirectory, fileName);
-            console.log(filePath, "filePath");
             const jsonData = JSON.parse(fs_1.default.readFileSync(filePath, "utf-8"));
-            console.log(jsonData, "jsonData");
             const modelName = path_1.default.basename(fileName, path_1.default.extname(fileName));
-            console.log(modelName, "modelName");
             const model = prisma[modelName];
-            console.log(model, "model");
             if (!model) {
                 console.error(`No Prisma model matches the file name: ${fileName}`);
                 continue;
@@ -75,7 +66,6 @@ function main() {
                     data,
                 });
             }
-            console.log(`Seeded ${modelName} with data from ${fileName}`);
         }
     });
 }
