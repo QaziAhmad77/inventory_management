@@ -3,7 +3,6 @@ import fs from "fs";
 import path from "path";
 const prisma = new PrismaClient();
 
-
 // const modelNames = orderedFileNames.map((fileName) => { ... }): This maps over the file names and converts them to model names that match the Prisma models.
 // path.basename(fileName, path.extname(fileName)): Extracts the file name without the extension (e.g., "products" from "products.json").
 // console.log(modelName, "modelName");: Logs the extracted model name.

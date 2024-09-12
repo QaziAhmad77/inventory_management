@@ -15,6 +15,7 @@ const prisma = new client_1.PrismaClient();
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield prisma.users.findMany();
+        console.log(users, "users");
         res.json(users);
     }
     catch (error) {
